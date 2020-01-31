@@ -1,0 +1,23 @@
+<div style="text-align: center;">
+    <h1>{{emails}}</h1>
+    <input [(ngModel)]="emails" type="text">
+    <h2>Name : {{name}}</h2>
+    <label>Email:</label>
+    <label>{{email}}</label>
+    <br>
+    <br>
+    <label>Phone no:</label>
+    <label>{{phno}}</label>
+    <br>
+    <br>
+    <label>Mother's name:</label>
+    <label [innerHtml]="mothersname"></label>
+    <br>
+    <br>
+    <label>Father's name:</label>
+    <label [innerHtml]="fathersname"></label>
+    <br>
+    <br>
+    <button [disabled]="bvalue" (click)="toggle()">Cancel</button>&nbsp;
+    <button [disabled]="!bvalue" (click)="toggle()">Submit</button>
+</div>

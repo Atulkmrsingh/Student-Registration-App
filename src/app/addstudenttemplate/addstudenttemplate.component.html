@@ -1,0 +1,62 @@
+<br>
+<br>
+<div class="container" style="width : 40%">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+        <label> First Name :&nbsp;</label>
+        <input class="form-control" type="text" placeholder="Your full name" name="fullName" ngModel #firstuserName="ngModel" minlength="2"
+            required>
+
+        <div *ngIf="!firstuserName.valid">
+            <span id="errormessage"> Minimum of 2 characters</span>
+        </div>
+        <br>
+
+        <label>Last Name:&nbsp;</label>
+        <input type="text" class="form-control" placeholder="Your last name" name="lastName" ngModel #lastuserName="ngModel" minlength="2"
+            required>
+        <div *ngIf="!lastuserName.valid">
+            <span id="errormessage"> Minimum of 2 characters</span>
+        </div>
+        <br>
+
+        <label>Phone number :&nbsp;</label>
+        <input type="text" class="form-control" placeholder="Your phone number" name="phoneno" ngModel #phoneuserName="ngModel" minlength="2"
+            required>
+        <div *ngIf="!phoneuserName.valid">
+            <span id="errormessage"> Minimum of 2 characters</span>
+        </div>
+        <br>
+
+        <label>Email :&nbsp;</label>
+        <input type="email" class="form-control" placeholder="Your email id" name="email" ngModel #emailuserName="ngModel" minlength="2"
+            pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
+        <div *ngIf="!emailuserName.valid">
+            <span id="errormessage"> Email Id invalid</span>
+        </div>
+        <br>
+
+        <label>Address:&nbsp;</label>
+        <input type="text" class="form-control" placeholder="Your address" name="address" ngModel #addressuserName="ngModel" minlength="2"
+            required>
+        <div *ngIf="!addressuserName.valid">
+            <span id="errormessage"> Minimum of 2 characters</span>
+        </div>
+        <br>
+
+        <label>Gender:&nbsp;&nbsp;&nbsp;</label>
+        <label>Male:&nbsp;&nbsp;&nbsp;</label>
+        <input type="radio" name="gender" value="Male" ngModel #male="ngModel" required> &nbsp;&nbsp;&nbsp;
+        <label>Female:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="radio" name="gender" value="Female" ngModel #fmale="ngModel" required>
+
+        <div *ngIf="male.errors?.required && male.untouched">
+            <span id="errormessage"> Unfilled</span>
+        </div>
+
+        <br>
+
+        <button type="submit" [disabled]="f.invalid" class="btn btn-default">Submit</button>
+
+    </form>
+</div>

@@ -1,0 +1,74 @@
+<br>
+<br>
+<div class="container" style="width : 40%">
+  <form novalidate (ngSubmit)="onSubmit(user)" [formGroup]="user">
+
+    <label> First Name :&nbsp;</label>
+    <input class="form-control" type="text" placeholder="Your full name" formControlName="fullName">
+
+    <div class="error" *ngIf="user.get('fullName').touched && user.get('fullName').hasError('required')">
+      <span id="errormessage">Full Name is required</span>
+    </div>
+    <div class="error" *ngIf="user.get('fullName').touched && user.get('fullName').hasError('minlength')">
+      <span id="errormessage">Minimum of 2 characters</span>
+    </div>
+    <br>
+
+    <label>Last Name:&nbsp;</label>
+    <input type="text" class="form-control" placeholder="Your last name" formControlName="lastName">
+
+    <div class="error" *ngIf="user.get('lastName').touched && user.get('lastName').hasError('required')">
+      <span id="errormessage">Last Name is required</span>
+    </div>
+    <div class="error" *ngIf="user.get('lastName').touched && user.get('lastName').hasError('minlength')">
+      <span id="errormessage">Minimum of 2 characters</span>
+    </div>
+    <br>
+
+    <label>Phone number :&nbsp;</label>
+    <input type="text" class="form-control" placeholder="Your phone number" formControlName="phoneno">
+    <div class="error" *ngIf="user.get('phoneno').touched && user.get('phoneno').hasError('required')">
+      <span id="errormessage">Phone number is required</span>
+    </div>
+    <div class="error" *ngIf="user.get('phoneno').touched && user.get('phoneno').hasError('pattern')">
+      <span id="errormessage"> Incorrect phone number</span>
+    </div>
+    <br>
+
+    <label>Email :&nbsp;</label>
+    <input type="email" class="form-control" placeholder="Your email id" formControlName="email">
+    <div class="error" *ngIf="user.get('email').touched && user.get('email').hasError('required')">
+      <span id="errormessage">Email is required</span>
+    </div>
+    <div class="error" *ngIf="user.get('email').touched && user.get('email').hasError('pattern')">
+      <span id="errormessage">Incorrect Email Address</span>
+    </div>
+    <br>
+
+    <label>Address:&nbsp;</label>
+    <input type="text" class="form-control" placeholder="Your address" formControlName="address">
+    <div class="error" *ngIf="user.get('address').touched && user.get('address').hasError('required')">
+      <span id="errormessage">Address is required</span>
+    </div>
+    <div class="error" *ngIf="user.get('address').touched && user.get('address').hasError('minlength')">
+      <span id="errormessage"> Minimum of 2 characters</span>
+    </div>
+    <br>
+    <label>Gender:&nbsp;&nbsp;&nbsp;</label>
+    <label>Male:&nbsp;&nbsp;&nbsp;</label>
+    <input type="radio" value="Male" formControlName="gender"> &nbsp;&nbsp;&nbsp;
+    <label>Female:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <input type="radio" value="Female" formControlName="gender">
+
+
+    <div class="error" *ngIf="user.get('gender').errors?.required && user.get('gender').touched">
+      <span id="errormessage"> Please select Gender</span>
+    </div>
+
+
+    <br>
+
+    <button type="submit" [disabled]="user.invalid" class="btn btn-default">Submit</button>
+
+  </form>
+</div>
